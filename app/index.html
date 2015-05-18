@@ -1,0 +1,92 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html lang="en" ng-app="baguaApp" ng-controller="appCtrl">
+<head>
+    <title>Bagua Kung Fu Durban</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/zurb-foundation-npm/css/foundation.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+</head>
+<body>
+    <div class="row">
+        <div class="contain-to-grid">
+            <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1>
+					      	<a ui-sref="home">
+						      	<i class="fa fa-star"></i>&nbsp;Bagua Kung Fu Durban&nbsp;<i class="fa fa-star"></i>
+					      	</a>
+		      			</h1>
+                    </li>
+                </ul>
+                <section class="top-bar-section">
+                    <ul class="left">
+                        <li><a ui-sref="history">History</a></li>
+                        <li><a ui-sref="theory">Theory</a></li>
+                        <li><a ui-sref="animalSystems">Animal Systems</a></li>
+                        <li><a ui-sref="curriculum">Curriculum</a></li>
+                        <li><a ui-sref="classes">Classes</a></li>
+                        <li style="border-right:1px solid #FFFFFF"><a ui-sref="contact">Contact</a></li>
+                    </ul>
+                    <ul class="right">
+                        <li class="has-dropdown">
+                            <a href="#"><i class="fa fa-bars"></i></a>
+                            <ul class="dropdown">                                
+                                <li><a href="#"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </nav>
+        </div>
+        <div class="row">
+            <p>
+                <div ui-view></div>
+            </p>
+        </div>
+        <div class="row" ng-hide="showContactUs()" id="contact-us">
+            <contactbar></contactbar>
+        </div>
+        <footer class="row">
+            <div class="large-12 columns">
+                <hr/>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p>&copy; Copyright Bagua Kung Fu Durban - 2015</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <ul class="inline-list right">
+                            <li><a href="#"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="bower_components/angular-foundation/src/modal/modal.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/ui-router/angular-ui-router.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>    
+    <script src="bower_components/angular-foundation/src/mm-foundation-tpls-0.6.0.js"></script>
+    <script src="bower_components/zurb-foundation-npm/js/modernizr.js"></script>
+    <script src="bower_components/zurb-foundation-npm/js/foundation/foundation.js"></script>
+    <script src="bower_components/zurb-foundation-npm/js/foundation/foundation.topbar.js"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script>
+    $(document).foundation();
+    </script>
+</body>
+
+</html>

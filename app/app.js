@@ -16,28 +16,38 @@
                 templateUrl: 'partials/home/home.html',
                 controller: 'homeCtrl',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - Home'
                 }
             })
             .state('history', {
                 url: '/history',
                 templateUrl: 'partials/history/history.html',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - History'
                 }
             })
             .state('theory', {
                 url: '/theory',
                 templateUrl: 'partials/theory/theory.html',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - Theory'
                 }
             })
             .state('animalSystems', {
                 url: '/animalSystems',
-                templateUrl: 'partials/animalSystems/animalSystems.html',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - The Animal Systems'
+                },
+                views: {                    
+                    '': { templateUrl: 'partials/animalSystems/animalSystems.html' },
+                    'lion@animalSystems': { templateUrl: 'partials/animalSystems/lion/lion.html' },
+                    'snake@animalSystems': { templateUrl: 'partials/animalSystems/snake/snake.html' },
+                    'bear@animalSystems': { templateUrl: 'partials/animalSystems/bear/bear.html' },
+                    'phoenix@animalSystems': { templateUrl: 'partials/animalSystems/phoenix/phoenix.html' },
+                    'rooster@animalSystems': { templateUrl: 'partials/animalSystems/rooster/rooster.html' },
+                    'monkey@animalSystems': { templateUrl: 'partials/animalSystems/monkey/monkey.html' },
+                    'unicorn@animalSystems': { templateUrl: 'partials/animalSystems/unicorn/unicorn.html' }
+                    
                 }
             })
             .state('classes', {
@@ -45,7 +55,7 @@
                 templateUrl: 'partials/classes/classes.html',
                 controller: 'classesCtrl',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - Classes'
                 }
             })
             .state('contact', {
@@ -53,14 +63,14 @@
                 templateUrl: 'partials/contact/contact.html',
                 controller: 'contactCtrl',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - Contact'
                 }
             })    
             .state('curriculum', {
                 url: '/curriculum',
                 templateUrl: 'partials/curriculum/curriculum.html',
                 data: {
-                    requireLogin: false
+                    pageTitle : 'Bagua Kung Fu Durban - Curriculum'
                 }
             })         
     });
@@ -174,6 +184,10 @@
 
     }]);
 
+    baguaApp.controller('', function($scope) {
+
+    });
+
     baguaApp.filter('durations', function() {
         
         return function(duration) {
@@ -199,5 +213,24 @@
         return directive;
 
     });
+
+    baguaApp.directive('title', ['$rootScope', '$timeout',
+    
+    function($rootScope, $timeout) {
+        return {
+            
+                link: function() {
+
+                var listener = function(event, toState) {
+                    
+                    $timeout(function() {
+                        $rootScope.title = (toState.data && toState.data.pageTitle) ? toState.data.pageTitle : 'Bagua Kung Fu Durban';
+                    });
+                };
+
+                $rootScope.$on('$stateChangeSuccess', listener);
+            }
+        };
+    }]);
 
 }());

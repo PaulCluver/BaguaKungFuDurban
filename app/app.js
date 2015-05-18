@@ -2,11 +2,11 @@
 
     'use strict';
 
-    var baguaApp = angular.module('baguaApp', ['ui.router', 'mgcrea.ngStrap', 'ngResource', 'mm.foundation', 'ngCookies']);
+    var baguaApp = angular.module('baguaApp', ['ui.router', 'mm.foundation']);
 
     baguaApp.constant('VERSION', '0.1');
 
-    baguaApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, GreetingProvider) {
+    baguaApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
                
 
         $urlRouterProvider.otherwise('/home');
@@ -65,7 +65,7 @@
             })         
     });
 
-    baguaApp.service('ClassesDataService', function($resource) {
+    baguaApp.service('ClassesDataService', function() {
         
         this.classes = [{
             name: 'Ashtanga',
@@ -121,73 +121,7 @@
 
     });
 
-    baguaApp.factory('LoginApi', function($q, $http) {        
-       
-
-        function _login(userName, password) {
-            var d = $q.defer();
-            setTimeout(function() {
-                    
-                var user = undefined;
-
-                var query = { _name: 'SAHL.Services.Interfaces.UserProfile.Queries.GetUserDetailsForUserQuery,SAHL.Services.Interfaces.UserProfile', aDUsername: userName};
-                $http.post('http://localhost/UserProfileService/api/QueryHttpHandler/PerformHttpQuery', query)
-                .success(function (data, status, headers, config) {
-                    if (data != undefined) 
-                        
-                        var user = {
-                            authenticated: true,
-                            email: data.ReturnData.Results.$values[0].EmailAddress,
-                            password: password,                                
-                            displayName: data.ReturnData.Results.$values[0].DisplayName
-                        }
-                        
-                        d.resolve(user);
-                })
-                .error(function (data, status, headers, config) {
-                    if (data != undefined) {
-                        alert('Invalid Credentials: ');                       
-                        d.reject('Invalid Credentials');
-                    }
-                });
-                
-            }, 100);
-            return d.promise
-        }
-        return {
-            login: _login
-        };
-        
-    });    
-
-    baguaApp.provider('Greeting', function() {
-        
-        this.$get = function($cookieStore) {
-            return {
-                getGreeting: function() {
-                    if (typeof $cookieStore.get('userDetails') != 'undefined') {
-                        return $cookieStore.get('userDetails')['displayName'];
-                    }
-                }
-            };
-        };
-
-    });
-
-    baguaApp.controller('loginCtrl', function($scope, $cookieStore, LoginApi, $window) {
-        this.cancel = $scope.$dismiss;
-
-        this.submit = function(userName, password) { 
-            LoginApi.login(userName, password).then(function(user) {
-                $cookieStore.put('userDetails', user);
-                $scope.$close(user);
-                $window.location.reload();
-            });
-        };
-
-    });
-
-    baguaApp.controller('appCtrl', function($rootScope, $scope, $cookieStore, $location, Greeting, $window) {
+    baguaApp.controller('appCtrl', function($rootScope, $scope, $location, $window) {
         
         $scope.showContactUs = function() {
             $scope.showContactUsBoolean = false;
@@ -196,34 +130,6 @@
             }
             return $scope.showContactUsBoolean;
         };
-
-        $scope.showLoginLink = function() {
-            $scope.showLogin = false;
-            var userDetails = $cookieStore.get('userDetails');            
-
-            if (userDetails === false || typeof userDetails === 'undefined') {
-                $scope.showLogin = true;
-            }
-            return $scope.showLogin;
-        };
-
-         $scope.showLogoutLink = function() {
-            $scope.showLogout = false;
-            var userDetails = $cookieStore.get('userDetails');
-            
-            if (typeof userDetails != 'undefined' && userDetails['authenticated'] === true) {
-                $scope.showLogout = true;
-            } 
-            return $scope.showLogout;
-        };
-
-        $scope.logout = function() {
-            $cookieStore.remove('userDetails');
-            $window.location.reload();
-            $location.path('home');
-        };
-
-        $scope.providerGreeting = Greeting.getGreeting();
 
     });
 

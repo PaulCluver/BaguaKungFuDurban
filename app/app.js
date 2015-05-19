@@ -33,21 +33,60 @@
                     pageTitle : 'Bagua Kung Fu Durban - Theory'
                 }
             })
-            .state('animalSystems', {
-                url: '/animalSystems',
+            .state('theLion', {
+                url: '/theLion',
+                templateUrl: 'partials/animalSystems/lion/lion.html',
                 data: {
-                    pageTitle : 'Bagua Kung Fu Durban - The Animal Systems'
-                },
-                views: {                    
-                    '': { templateUrl: 'partials/animalSystems/animalSystems.html' },
-                    'lion@animalSystems': { templateUrl: 'partials/animalSystems/lion/lion.html' },
-                    'snake@animalSystems': { templateUrl: 'partials/animalSystems/snake/snake.html' },
-                    'bear@animalSystems': { templateUrl: 'partials/animalSystems/bear/bear.html' },
-                    'phoenix@animalSystems': { templateUrl: 'partials/animalSystems/phoenix/phoenix.html' },
-                    'rooster@animalSystems': { templateUrl: 'partials/animalSystems/rooster/rooster.html' },
-                    'monkey@animalSystems': { templateUrl: 'partials/animalSystems/monkey/monkey.html' },
-                    'unicorn@animalSystems': { templateUrl: 'partials/animalSystems/unicorn/unicorn.html' }
-                    
+                    pageTitle : 'Bagua Kung Fu Durban - The Lion System'
+                }
+            })
+            .state('theSnake', {
+                url: '/theSnake',
+                templateUrl: 'partials/animalSystems/snake/snake.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Snake System'
+                }
+            })
+            .state('theBear', {
+                url: '/theBear',
+                templateUrl: 'partials/animalSystems/bear/bear.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Bear System'
+                }
+            })
+            .state('theDragon', {
+                url: '/theDragon',
+                templateUrl: 'partials/animalSystems/dragon/dragon.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Dragon System'
+                }
+            })
+            .state('thePhoenix', {
+                url: '/thePhoenix',
+                templateUrl: 'partials/animalSystems/phoenix/phoenix.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Phoenix System'
+                }
+            })
+            .state('theRooster', {
+                url: '/theRooster',
+                templateUrl: 'partials/animalSystems/rooster/rooster.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Rooster System'
+                }
+            })
+            .state('theMonkey', {
+                url: '/theMonkey',
+                templateUrl: 'partials/animalSystems/monkey/monkey.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Monkey System'
+                }
+            })
+            .state('theUnicorn', {
+                url: '/theUnicorn',
+                templateUrl: 'partials/animalSystems/unicorn/unicorn.html',
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - The Unicorn System'
                 }
             })
             .state('classes', {
@@ -141,6 +180,14 @@
             return $scope.showContactUsBoolean;
         };
 
+        $scope.showLionBody = function() {
+            $scope.showLionBodyBoolean = false;
+            if (location.hash == '#/contact') {
+                $scope.showLionBodyBoolean = true;
+            }
+            return $scope.showLionBodyBoolean;
+        };
+
     });
 
     baguaApp.controller('homeCtrl', function($scope) {
@@ -183,10 +230,6 @@
         $scope.reverseSort = false;
 
     }]);
-
-    baguaApp.controller('', function($scope) {
-
-    });
 
     baguaApp.filter('durations', function() {
         

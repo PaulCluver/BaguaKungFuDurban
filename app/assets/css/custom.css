@@ -1,0 +1,23 @@
+.top-bar {
+    background: #000000;
+}
+
+.top-bar-section li a:not(.button) {
+    background: #000000 !important;   
+}
+
+.top-bar-section li a:not(.button):hover {
+    background: #C86013 !important;   
+}
+
+.top-bar-section ul li.active > a {
+    background: #C86013 !important;   
+}
+
+.top-bar-section ul li.active > a:hover {
+    background: yellow !important;   
+}
+
+.title-area h1 a.active {
+	background-color: #000000
+}

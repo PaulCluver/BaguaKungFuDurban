@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var baguaApp = angular.module('baguaApp', ['ui.router', 'mm.foundation']);
+    var baguaApp = angular.module('baguaApp', ['ui.router', 'mm.foundation', 'ngAnimate', 'ngTouch']);
 
     baguaApp.constant('VERSION', '0.1');
 
@@ -167,12 +167,39 @@
     });
 
     baguaApp.controller('appCtrl', function($rootScope, $scope, $location, $window) {
+        
         $scope.showContactUs = function() {
             $scope.showContactUsBoolean = false;
             if (location.hash == '#/contact') {
                 $scope.showContactUsBoolean = true;
             }
             return $scope.showContactUsBoolean;
+        };
+
+        $scope.slides = [
+            {image: 'assets/img/img00.jpg', description: 'Image 00'},
+            {image: 'assets/img/img01.jpg', description: 'Image 01'},
+            {image: 'assets/img/img02.jpg', description: 'Image 02'},
+            {image: 'assets/img/img03.jpg', description: 'Image 03'},
+            {image: 'assets/img/img04.jpg', description: 'Image 04'}
+        ];
+
+        $scope.currentIndex = 0;
+
+        $scope.setCurrentSlideIndex = function (index) {
+            $scope.currentIndex = index;
+        };
+
+        $scope.isCurrentSlideIndex = function (index) {
+            return $scope.currentIndex === index;
+        };
+
+        $scope.prevSlide = function () {
+            $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        };
+
+        $scope.nextSlide = function () {
+            $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
         };
 
     });
@@ -244,22 +271,48 @@
 
     baguaApp.directive('title', ['$rootScope', '$timeout',
     
-    function($rootScope, $timeout) {
+        function($rootScope, $timeout) {
+            return {
+                
+                    link: function() {
+
+                    var listener = function(event, toState) {
+                        
+                        $timeout(function() {
+                            $rootScope.title = (toState.data && toState.data.pageTitle) ? toState.data.pageTitle : 'Bagua Kung Fu Durban';
+                            $rootScope.description = (toState.data && toState.data.description) ? toState.data.description : 'Bagua Kung Fu in Durban, South Africa';
+                        });
+                    };
+
+                    $rootScope.$on('$stateChangeSuccess', listener);
+                }
+            };
+        }
+
+    ]);
+
+    baguaApp.animation('.slide-animation', function() {
         return {
-            
-                link: function() {
+            addClass: function (element, className, done) {
+                if (className == 'ng-hide') {
+                    TweenMax.to(element, 0.5, {left: -element.parent().width(), onComplete: done });
+                }
+                else {
+                    done();
+                }
+            },
+            removeClass: function (element, className, done) {
+                if (className == 'ng-hide') {
+                    element.removeClass('ng-hide');
 
-                var listener = function(event, toState) {
-                    
-                    $timeout(function() {
-                        $rootScope.title = (toState.data && toState.data.pageTitle) ? toState.data.pageTitle : 'Bagua Kung Fu Durban';
-                        $rootScope.description = (toState.data && toState.data.description) ? toState.data.description : 'Bagua Kung Fu in Durban, South Africa';
-                    });
-                };
-
-                $rootScope.$on('$stateChangeSuccess', listener);
+                    TweenMax.set(element, { left: element.parent().width() });
+                    TweenMax.to(element, 0.5, {left: 0, onComplete: done });
+                }
+                else {
+                    done();
+                }
             }
         };
-    }]);
+    });
 
 }());

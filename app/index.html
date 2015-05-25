@@ -60,12 +60,20 @@
             </nav>
         </div>
         <div class="row">
-            <p>
-                <div class="large-12 columns">
-                    <img src="assets/img/banner.jpg" />
-                </div>
-                <div ui-view></div>
-            </p>
+            <div class="large-12 columns">
+                <img ng-repeat="slide in slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+                <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+                <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+                <nav class="nav">
+                    <div class="wrapper">
+                        <ul class="dots">
+                            <li class="dot" ng-repeat="slide in slides">
+                                <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div ui-view></div>
         </div>
         <div class="row" ng-hide="showContactUs()" id="contact-us">
             <contactbar></contactbar>
@@ -91,13 +99,16 @@
         </footer>
     </div>
     
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/ui-router/angular-ui-router.js"></script>         
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="bower_components/angular-foundation/src/mm-foundation-tpls-0.6.0.js"></script>
+    <script src="bower_components/ui-router/angular-ui-router.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/zurb-foundation-npm/js/modernizr.js"></script>
     <script src="bower_components/zurb-foundation-npm/js/foundation/foundation.js"></script>
     <script src="bower_components/zurb-foundation-npm/js/foundation/foundation.topbar.js"></script>
+    <script src="bower_components/TweenJS/lib/tweenjs-0.6.0.min.js"></script>
     <script src="app.js" type="text/javascript"></script>
     <script>
     $(document).foundation();

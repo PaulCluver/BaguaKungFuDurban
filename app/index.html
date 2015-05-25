@@ -40,18 +40,18 @@
                                 <li><a ui-sref="theUnicorn">Kun Gua Unicorn System</a></li>
                             </ul>
                         </li>
-                        <li><a ui-sref="curriculum">Curriculum</a></li>
-                        <li><a ui-sref="classes">Classes</a></li>
-                        <li style="border-right:1px solid #FFFFFF"><a ui-sref="contact">Contact</a></li>
+                        <!-- <li><a ui-sref="curriculum">Curriculum</a></li> -->
+                        <li style="border-right:1px solid #FFFFFF"><a ui-sref="classes">Classes and Contact</a></li>
+                        <!-- <li><a ui-sref="contact">Contact</a></li> -->
                     </ul>
                     <ul class="right">
                         <li class="has-dropdown">
                             <a href="#"><i class="fa fa-bars"></i></a>
                             <ul class="dropdown">                                
-                                <li><a href="#"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
+                                <li><a href="http://baguakungfu.wordpress.com/" target="_blank"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
+                                <li><a href="https://twitter.com/MuktiMovement" target="_blank"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
+                                <!-- <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></li> -->
                                 <li><a href="http://www.mukti.co.za" target="_blank"><i class="fa fa-moon-o"></i>&nbsp;&nbsp;Mukti Movement</a></li>
                             </ul>
                         </li>
@@ -60,19 +60,22 @@
             </nav>
         </div>
         <div class="row">
-            <div class="large-12 columns">
-                <img ng-repeat="slide in slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+            <!-- <div class="large-12 columns">
+                <img ng-repeat="slide in slides" class="slide" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}" width="1000" height="163">
                 <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
                 <a class="arrow next" href="#" ng-click="prevSlide()"></a>
                 <nav class="nav">
                     <div class="wrapper">
                         <ul class="dots">
                             <li class="dot" ng-repeat="slide in slides">
-                                <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+                                <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">
+                                    {{slide.description}}
+                                </a>
+                            </li>                            
                         </ul>
                     </div>
                 </nav>
-            </div>
+            </div> -->
             <div ui-view></div>
         </div>
         <div class="row" ng-hide="showContactUs()" id="contact-us">
@@ -87,11 +90,11 @@
                     </div>
                     <div class="large-8 columns">
                         <ul class="inline-list right">
-                            <li><a href="#"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
-                            <li><a href="http://www.mukti.co.za" target="_blank"><i class="fa fa-moon-o"></i>&nbsp;&nbsp;Mukti Movement</a></li>
+                            <li><a href="http://baguakungfu.wordpress.com/" target="_blank"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
+                                <li><a href="https://twitter.com/MuktiMovement" target="_blank"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
+                                <!-- <li><a href="#"><i class="fa fa-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i>&nbsp;&nbsp;Youtube</a></li> -->
+                                <li><a href="http://www.mukti.co.za" target="_blank"><i class="fa fa-moon-o"></i>&nbsp;&nbsp;Mukti Movement</a></li>
                         </ul>
                     </div>
                 </div>

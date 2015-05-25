@@ -177,16 +177,21 @@
         };
 
         $scope.slides = [
-            {image: 'assets/img/img00.jpg', description: 'Image 00'},
-            {image: 'assets/img/img01.jpg', description: 'Image 01'},
-            {image: 'assets/img/img02.jpg', description: 'Image 02'},
-            {image: 'assets/img/img03.jpg', description: 'Image 03'},
-            {image: 'assets/img/img04.jpg', description: 'Image 04'}
+            {image: 'assets/img/lion.jpg', description: 'Lion'},
+            {image: 'assets/img/snake.jpg', description: 'Snake'},
+            {image: 'assets/img/bear.jpg', description: 'Bear'},
+            {image: 'assets/img/dragon.jpg', description: 'Dragon'},
+            {image: 'assets/img/phoenix.jpg', description: 'Phoenix'},
+            {image: 'assets/img/rooster.jpg', description: 'Rooster'},
+            {image: 'assets/img/monkey.jpg', description: 'Monkey'},
+            {image: 'assets/img/unicorn.jpg', description: 'Unicorn'}
         ];
 
+        $scope.direction = 'left';
         $scope.currentIndex = 0;
 
         $scope.setCurrentSlideIndex = function (index) {
+            $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
             $scope.currentIndex = index;
         };
 
@@ -195,10 +200,12 @@
         };
 
         $scope.prevSlide = function () {
+            $scope.direction = 'left';
             $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
         };
 
         $scope.nextSlide = function () {
+            $scope.direction = 'right';
             $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
         };
 
@@ -293,20 +300,32 @@
 
     baguaApp.animation('.slide-animation', function() {
         return {
-            addClass: function (element, className, done) {
+            beforeAddClass: function (element, className, done) {
+                var scope = element.scope();
+
                 if (className == 'ng-hide') {
-                    TweenMax.to(element, 0.5, {left: -element.parent().width(), onComplete: done });
+                    var finishPoint = element.parent().width();
+                    if(scope.direction !== 'right') {
+                        finishPoint = -finishPoint;
+                    }
+                    TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
                 }
                 else {
                     done();
                 }
             },
             removeClass: function (element, className, done) {
+                var scope = element.scope();
+
                 if (className == 'ng-hide') {
                     element.removeClass('ng-hide');
 
-                    TweenMax.set(element, { left: element.parent().width() });
-                    TweenMax.to(element, 0.5, {left: 0, onComplete: done });
+                    var startPoint = element.parent().width();
+                    if(scope.direction === 'right') {
+                        startPoint = -startPoint;
+                    }
+
+                    TweenMax.fromTo(element, 0.5, { left: startPoint }, {left: 0, onComplete: done });
                 }
                 else {
                     done();

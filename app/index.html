@@ -40,9 +40,7 @@
                                 <li><a ui-sref="theUnicorn">Kun Gua Unicorn System</a></li>
                             </ul>
                         </li>
-                        <!-- <li><a ui-sref="curriculum">Curriculum</a></li> -->
                         <li style="border-right:1px solid #FFFFFF"><a ui-sref="classes">Classes and Contact</a></li>
-                        <!-- <li><a ui-sref="contact">Contact</a></li> -->
                     </ul>
                     <ul class="right">
                         <li class="has-dropdown">
@@ -58,6 +56,17 @@
             </nav>
         </div>
         <div class="row">
+           <div class="large-12 columns">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <h4>
+                            <blockquote>
+                                {{quotes.text}} - <span style="font-size:18px; font-style:italic">{{quotes.author}}</span>
+                            </blockquote>
+                        </h4>
+                    </div>
+                </div>
+            </div>
             <p>
                 <div ui-view></div>
             </p>

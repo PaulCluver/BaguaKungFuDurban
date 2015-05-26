@@ -166,7 +166,42 @@
 
     });
 
-    baguaApp.controller('appCtrl', function($rootScope, $scope, $location, $window) {
+    baguaApp.service('QuotesDataService', function() {
+       
+        this.quotes = [{
+            text: 'Everything flows, nothing stands still',
+            author: 'Heraclitus of Ephesus'
+        },
+        {
+            text: 'Practice, practice...all is coming',
+            author: 'Sri K. Pattabhi Jois'
+        },
+        {
+            text: 'It is difficult to understand the universe if you only study one planet',
+            author: 'Miyamoto Musashi'
+        },
+        {
+            text: 'Stop acting so small. You are the universe in ecstatic motion.',
+            author: 'Rumi'
+        },
+        {
+            text: 'It is better to live one day seeing the rise and fall of things than to live a hundred years without seeing anything.',
+            author: 'Gautama Buddha'
+        }];
+
+    });
+
+    baguaApp.service('QuotesService', function(QuotesDataService) {
+        
+        this.getRandomQuote = function() {
+            var quotesLength = QuotesDataService.quotes.length;
+            var randomItem = Math.floor((Math.random() * quotesLength));
+            return QuotesDataService.quotes[randomItem];
+        };
+
+    });
+
+    baguaApp.controller('appCtrl', ['$scope', '$window', 'QuotesService', function($scope, $window, QuotesService) {
         
         $scope.showContactUs = function() {
             $scope.showContactUsBoolean = false;
@@ -175,41 +210,9 @@
             }
             return $scope.showContactUsBoolean;
         };
-
-        $scope.slides = [
-            {image: 'assets/img/lion.jpg', description: 'Lion'},
-            {image: 'assets/img/snake.jpg', description: 'Snake'},
-            {image: 'assets/img/bear.jpg', description: 'Bear'},
-            {image: 'assets/img/dragon.jpg', description: 'Dragon'},
-            {image: 'assets/img/phoenix.jpg', description: 'Phoenix'},
-            {image: 'assets/img/rooster.jpg', description: 'Rooster'},
-            {image: 'assets/img/monkey.jpg', description: 'Monkey'},
-            {image: 'assets/img/unicorn.jpg', description: 'Unicorn'}
-        ];
-
-        $scope.direction = 'left';
-        $scope.currentIndex = 0;
-
-        $scope.setCurrentSlideIndex = function (index) {
-            $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
-            $scope.currentIndex = index;
-        };
-
-        $scope.isCurrentSlideIndex = function (index) {
-            return $scope.currentIndex === index;
-        };
-
-        $scope.prevSlide = function () {
-            $scope.direction = 'left';
-            $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-        };
-
-        $scope.nextSlide = function () {
-            $scope.direction = 'right';
-            $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
-        };
-
-    });
+       
+        $scope.quotes = QuotesService.getRandomQuote();
+    }]);
 
     baguaApp.controller('homeCtrl', function($scope) {
         
@@ -221,7 +224,7 @@
                 $scope.myBoolean = true;
             }
             return $scope.myBoolean;
-        };         
+        };        
     });
 
     baguaApp.controller('contactCtrl', function($scope) {

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://www.bagua-kungfu-durban.co.za/sitemap.xml

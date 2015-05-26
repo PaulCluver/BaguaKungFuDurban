@@ -25,3 +25,7 @@
     float: right;
     margin: 10px
 }
+.textWrapLeft {
+    float: left;
+    margin: 10px
+}

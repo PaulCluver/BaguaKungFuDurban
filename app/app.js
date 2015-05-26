@@ -16,7 +16,7 @@
                 controller: 'homeCtrl',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - Home',
-                    description: 'Bagua Zhang Kung ZhangFu Durban South Africa'
+                    description: 'Bagua Zhang Kung Fu in Durban South Africa'
                 }
             })
             .state('history', {

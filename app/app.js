@@ -201,7 +201,7 @@
 
     });
 
-    baguaApp.controller('appCtrl', ['$scope', '$window', 'QuotesService', function($scope, $window, QuotesService) {
+    baguaApp.controller('appCtrl', ['$scope', function($scope) {
         
         $scope.showContactUs = function() {
             $scope.showContactUsBoolean = false;
@@ -209,9 +209,8 @@
                 $scope.showContactUsBoolean = true;
             }
             return $scope.showContactUsBoolean;
-        };
-       
-        $scope.quotes = QuotesService.getRandomQuote();
+        };    
+        
     }]);
 
     baguaApp.controller('homeCtrl', function($scope) {
@@ -279,9 +278,9 @@
 
     });
 
-    baguaApp.directive('title', ['$rootScope', '$timeout',
+    baguaApp.directive('title', ['$rootScope', '$timeout', 'QuotesService',
     
-        function($rootScope, $timeout) {
+        function($rootScope, $timeout, QuotesService) {
             return {
                 
                     link: function() {
@@ -291,6 +290,7 @@
                         $timeout(function() {
                             $rootScope.title = (toState.data && toState.data.pageTitle) ? toState.data.pageTitle : 'Bagua Kung Fu Durban';
                             $rootScope.description = (toState.data && toState.data.description) ? toState.data.description : 'Bagua Kung Fu in Durban, South Africa';
+                            $rootScope.quotes = QuotesService.getRandomQuote();
                         });
                     };
 

@@ -110,8 +110,7 @@
             })
             .state('contact', {
                 url: '/contact',
-                templateUrl: 'partials/contact/contact.html',
-                controller: 'contactCtrl',
+                templateUrl: 'partials/contact/contact.html',               
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - Contact',
                     description: 'This page provides contact information on Durban Bagua Zhang Kung Fu.'
@@ -204,9 +203,10 @@
     baguaApp.controller('appCtrl', ['$scope', function($scope) {
         
         $scope.showContactUs = function() {
-            $scope.showContactUsBoolean = false;
-            if (location.hash == '#/contact') {
-                $scope.showContactUsBoolean = true;
+            $scope.showContactUsBoolean = true;
+
+            if (location.hash != '#/contact') {
+                $scope.showContactUsBoolean = false;
             }
             return $scope.showContactUsBoolean;
         };    
@@ -214,38 +214,9 @@
     }]);
 
     baguaApp.controller('homeCtrl', function($scope) {
-        
-        $scope.showContactUs = function() {
-
-            $scope.myBoolean = false;
-
-            if (location.path() == 'contact') {
-                $scope.myBoolean = true;
-            }
-            return $scope.myBoolean;
-        };        
+      
     });
-
-    baguaApp.controller('contactCtrl', function($scope) {
-        
-        $scope.contactDetails = {};
-
-        $scope.update = function(user) {
-            $scope.contactDetails = angular.copy(user);
-        };
-
-        $scope.reset = function(form) {
-            if (form) {
-                form.$setPristine();
-                form.$setUntouched();
-            }
-            $scope.user = angular.copy($scope.contactDetails);
-        };
-
-        $scope.reset();
-
-    });
-
+   
     baguaApp.controller('classesCtrl', ['$scope', 'ClassesService', function($scope, ClassesService) {
        
         $scope.classes = ClassesService.getAllClasses();
@@ -266,15 +237,6 @@
                     return 'Full day';
             }
         }
-
-    });
-
-    baguaApp.directive('contactBar', function() {
-
-        var directive = {};
-        directive.restrict = 'E';
-        directive.templateUrl = '/partials/contact/contactBar.html';
-        return directive;
 
     });
 

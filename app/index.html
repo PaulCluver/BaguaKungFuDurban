@@ -40,7 +40,8 @@
                                 <li><a ui-sref="theUnicorn">Kun Gua Unicorn System</a></li>
                             </ul>
                         </li>
-                        <li style="border-right:1px solid #FFFFFF"><a ui-sref="classes">Classes and Contact</a></li>
+                        <li><a ui-sref="classes">Classes</a></li>
+                        <li style="border-right:1px solid #FFFFFF"><a ui-sref="contact">Contact</a></li>
                     </ul>
                     <ul class="right">
                         <li class="has-dropdown">
@@ -72,7 +73,19 @@
             </p>
         </div>
         <div class="row" ng-hide="showContactUs()" id="contact-us">
-            <contactBar></contactBar>
+            <div class="large-12 columns">
+                <div class="panel">
+                    <h4>Get in touch!</h4>
+                    <div class="row">
+                        <div class="large-8 columns">
+                            <p>We'd love to hear from you ...</p>
+                        </div>
+                        <div class="large-4 columns">
+                            <a ui-sref="contact" class="radius button right">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <footer class="row">
             <div class="large-12 columns">

@@ -186,7 +186,88 @@
         {
             text: 'It is better to live one day seeing the rise and fall of things than to live a hundred years without seeing anything.',
             author: 'Gautama Buddha'
-        }];
+        },
+        {
+            text: 'Everyone has been made for some particular work, and the desire for that work has been put in every heart.',
+            author: 'Rumi'
+        },
+        {
+            text: 'Everything that is made beautiful and fair and lovely is made for the eye of one who sees.',
+            author: 'Rumi'
+        },
+        {
+            text: 'Beauty surrounds us, but usually we need to be walking in a garden to know it.',
+            author: 'Rumi'
+        },
+        {
+            text: 'Victorious warriors win first and then go to war, while defeated warriors go to war first and then seek to win.',
+            author: 'Sun Tzu'
+        },
+        {
+            text: 'Be extremely subtle, even to the point of formlessness. Be extremely mysterious, even to the point of soundlessness. Thereby you can be the director of the opponents fate.',
+            author: 'Sun Tzu'
+        },
+        {
+            text: 'Pretend inferiority and encourage his arrogance.',
+            author: 'Sun Tzu'
+        },
+        {
+            text: 'Know thy self, know thy enemy. A thousand battles, a thousand victories.',
+            author: 'Sun Tzu'
+        },
+        {
+            text: 'He who knows when he can fight and when he cannot, will be victorious.',
+            author: 'Sun Tzu'
+        },
+        {
+            text: 'If you know the enemy and know yourself you need not fear the results of a hundred battles.',
+            author: 'Sun Tzu'
+        },
+        {
+            text: 'Life is a series of natural and spontaneous changes. Dont resist them - that only creates sorrow. Let reality be reality. Let things flow naturally forward in whatever way they like.',
+            author: 'Lao Tzu'
+        },
+        {
+            text: 'Do the difficult things while they are easy and do the great things while they are small. A journey of a thousand miles must begin with a single step.',
+            author: 'Lao Tzu'
+        },
+        {
+            text: 'If you do not change direction, you may end up where you are heading.',
+            author: 'Lao Tzu'
+        },
+        {
+            text: 'To the mind that is still, the whole universe surrenders.',
+            author: 'Lao Tzu'
+        },
+        {
+            text: 'Silence is a source of great strength.',
+            author: 'Lao Tzu'
+        },
+        {
+            text: 'If you want to become full, let yourself be empty.',
+            author: 'Tao Te Ching'
+        },
+        {
+            text: 'If you want to be given everything, give everything up.',
+            author: 'Tao Te Ching'
+        },
+        {
+            text: 'When there is no desire, all things are at peace',
+            author: 'Tao Te Ching'
+        },
+        {
+            text: 'All things entail rising and falling timing. You must be able to discern this.',
+            author: 'Miyamoto Musashi'
+        },
+        {
+            text: 'Do nothing which is of no use.',
+            author: 'Miyamoto Musashi'
+        },
+        {
+            text: 'Perceive that which cannot be seen with the eye.',
+            author: 'Miyamoto Musashi'
+        }
+        ];
 
     });
 

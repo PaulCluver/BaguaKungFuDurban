@@ -29,29 +29,30 @@
     float: left;
     margin: 10px
 }
-blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
+#quote {
+  
+  border-left: 0px;
+  margin: 0px;
+  padding: 0px;
   quotes: "\201C""\201D""\2018""\2019";
 }
-blockquote:before {
-  color: #ccc;
+#quote:before {
+  color: #000;
   content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
+  font-size: 3em;
+  line-height: 0.2em;
+  margin-right: 0.1em;
   vertical-align: -0.4em;
 }
-blockquote:after {
-  color: #ccc;
+#quote:after {
+  color: #000;
   content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
+  font-size: 3em;
+  line-height: 0.2em;
+  margin-left: 0.1em;
   vertical-align: -0.4em;
 }
-blockquote p {
-  display: inline;
+.quoteAuthor {
+   font-style:italic;
+   font-size: 16px
 }

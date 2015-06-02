@@ -57,17 +57,13 @@
             </nav>
         </div>
         <div class="row">
-           <div class="large-12 columns">
-                <div class="row">
-                    <div class="large-12 columns">
-                        <h4>
-                            <blockquote>
-                                {{quotes.text}} - <span style="font-size:18px; font-style:italic">{{quotes.author}}</span>
-                            </blockquote>
-                        </h4>
+            <p>
+                <div class="large-12 columns">
+                    <div class='panel'>
+                        <p><h4><span id="quote">{{quotes.text}}</span><span class="quoteAuthor">{{quotes.author}}</span></h4></p>
                     </div>
                 </div>
-            </div>
+            </p>
             <p>
                 <div ui-view></div>
             </p>
@@ -91,10 +87,10 @@
             <div class="large-12 columns">
                 <hr/>
                 <div class="row">
-                    <div class="large-4 columns">
+                    <div class="large-5 columns">
                         <p>&copy; Copyright Bagua Kung Fu Durban - 2015</p>
                     </div>
-                    <div class="large-8 columns">
+                    <div class="large-7 columns">
                         <ul class="inline-list right">
                             <li><a href="http://baguakungfu.wordpress.com/" target="_blank"><i class="fa fa-wordpress"></i>&nbsp;&nbsp;Blog</a></li>
                                 <li><a href="https://twitter.com/MuktiMovement" target="_blank"><i class="fa fa-twitter"></i>&nbsp;&nbsp;Twitter</a></li>

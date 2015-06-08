@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var baguaApp = angular.module('baguaApp', ['ui.router', 'mm.foundation', 'ngAnimate', 'ngTouch']);
+    var baguaApp = angular.module('baguaApp', ['ui.router', 'mm.foundation']);
 
     baguaApp.constant('VERSION', '0.1');
 
@@ -130,20 +130,20 @@
         
         this.classes = [{
             name: 'Bagua Basics',
-            description: 'In this class we focus upon the basics of Bagua Zhang which include standing, striking, turning and changing',
-            day: 'Tuesday',
-            time: '18:15pm - 19:45pm',
+            description: 'In this class we focus upon the basics of Bagua Zhang which include standing, striking, turning and changing.',
+            day: 'Wednesday',
+            time: '17:00pm - 19:00pm',
             location: 
             {
-                address: 'Positive Health, 5 Claribel Rd',
+              address: '58 Gordon Road',
                 suburb: 'Morningside',
                 city: 'Durban',
                 province: 'Kwa-zulu Natal'
             }
         }, 
         {
-            name: 'Bagua Weapons',
-            description: 'In this class we focus upon the weapon systems of Bagua Zhang which include sword, sabre, spear, staff and knives',
+            name: 'Weapons and comparative studies',
+            description: 'In this class we focus upon the weapon systems of Bagua Zhang as well as a comparitive study of Tai Ji, Xing Yi and Muay Boran.',
             day: 'Thursday',
             time: '17:00pm - 19:00pm',
             location: 

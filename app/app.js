@@ -6,8 +6,8 @@
 
     baguaApp.constant('VERSION', '0.1');
 
-    baguaApp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-        
+    baguaApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+
         $urlRouterProvider.otherwise('/home');
         $stateProvider
             .state('home', {
@@ -123,7 +123,12 @@
                     pageTitle : 'Bagua Kung Fu Durban - Curriculum',
                     description: 'This page provides curriculum information on the martial art of Bagua Zhang Kung Fu.'
                 }
-            })         
+            });         
+
+        $locationProvider.html5Mode({
+          enabled: true,
+          requireBase: false
+        });
     });
 
     baguaApp.service('ClassesDataService', function() {

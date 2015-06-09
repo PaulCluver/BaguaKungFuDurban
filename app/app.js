@@ -8,10 +8,10 @@
 
     baguaApp.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/BaguaKungFuHome');
         $stateProvider
-            .state('home', {
-                url: '/home',
+            .state('BaguaKungFuHome', {
+                url: '/BaguaKungFuHome',
                 templateUrl: 'partials/home/home.html',
                 controller: 'homeCtrl',
                 data: {
@@ -19,88 +19,88 @@
                     description: 'Bagua Zhang Kung Fu in Durban South Africa'
                 }
             })
-            .state('history', {
-                url: '/history',
+            .state('BaguaKungFuHistory', {
+                url: '/BaguaKungFuHistory',
                 templateUrl: 'partials/history/history.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - History',
                     description: 'This page provides history on the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theory', {
-                url: '/theory',
+            .state('BaguaKungFuTheory', {
+                url: '/BaguaKungFuTheory',
                 templateUrl: 'partials/theory/theory.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - Theory',
                     description: 'This page describes the theories contained within the martial art of Bagua Zhang Kung Fu.',
                 }
             })
-            .state('theLion', {
-                url: '/theLion',
+            .state('LionKungFu', {
+                url: '/LionKungFu',
                 templateUrl: 'partials/animalSystems/lion/lion.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Lion System',
                     description: 'This page describes the Lion system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theSnake', {
-                url: '/theSnake',
+            .state('SnakeKungFu', {
+                url: '/SnakeKungFu',
                 templateUrl: 'partials/animalSystems/snake/snake.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Snake System',
                     description: 'This page describes the Snake system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theBear', {
-                url: '/theBear',
+            .state('BearKungFu', {
+                url: '/BeaKungFur',
                 templateUrl: 'partials/animalSystems/bear/bear.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Bear System',
                     description: 'This page describes the Bear system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theDragon', {
-                url: '/theDragon',
+            .state('DragonKungFu', {
+                url: '/DragonKungFu',
                 templateUrl: 'partials/animalSystems/dragon/dragon.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Dragon System',
                     description: 'This page describes the Dragon system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('thePhoenix', {
-                url: '/thePhoenix',
+            .state('PhoenixKungFu', {
+                url: '/PhoenixKungFu',
                 templateUrl: 'partials/animalSystems/phoenix/phoenix.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Phoenix System',
                     description: 'This page describes the Phoenix system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theRooster', {
-                url: '/theRooster',
+            .state('RoosterKungFu', {
+                url: '/RoosterKungFu',
                 templateUrl: 'partials/animalSystems/rooster/rooster.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Rooster System',
                     description: 'This page describes the Rooster system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theMonkey', {
-                url: '/theMonkey',
+            .state('MonkeyKungFu', {
+                url: '/MonkeyKungFu',
                 templateUrl: 'partials/animalSystems/monkey/monkey.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Monkey System',
                     description: 'This page describes the Monkey system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('theUnicorn', {
-                url: '/theUnicorn',
+            .state('UnicornKungFu', {
+                url: '/UnicornKungFu',
                 templateUrl: 'partials/animalSystems/unicorn/unicorn.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Unicorn System',
                     description: 'This page describes the Unicorn system of the martial art of Bagua Zhang Kung Fu.'
                 }
             })
-            .state('classes', {
-                url: '/classes',
+            .state('BaguaKungFuClasses', {
+                url: '/BaguaKungFuClasses',
                 templateUrl: 'partials/classes/classes.html',
                 controller: 'classesCtrl',
                 data: {
@@ -115,15 +115,7 @@
                     pageTitle : 'Bagua Kung Fu Durban - Contact',
                     description: 'This page provides contact information on Durban Bagua Zhang Kung Fu.'
                 }
-            })    
-            .state('curriculum', {
-                url: '/curriculum',
-                templateUrl: 'partials/curriculum/curriculum.html',
-                data: {
-                    pageTitle : 'Bagua Kung Fu Durban - Curriculum',
-                    description: 'This page provides curriculum information on the martial art of Bagua Zhang Kung Fu.'
-                }
-            });         
+            })      
 
         $locationProvider.html5Mode({
           enabled: true,

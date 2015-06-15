@@ -52,7 +52,7 @@
                 }
             })
             .state('BearKungFu', {
-                url: '/BeaKungFur',
+                url: '/BearKungFu',
                 templateUrl: 'partials/animalSystems/bear/bear.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - The Bear System',
@@ -115,7 +115,15 @@
                     pageTitle : 'Bagua Kung Fu Durban - Contact',
                     description: 'This page provides contact information on Durban Bagua Zhang Kung Fu.'
                 }
-            })      
+            })
+            .state('Method', {
+                url: '/Method',
+                templateUrl: 'partials/method/method.html',               
+                data: {
+                    pageTitle : 'Bagua Kung Fu Durban - Method',
+                    description: 'This page provides nformation on the training methods of Durban Bagua Zhang Kung Fu.'
+                }
+            }) 
 
         $locationProvider.html5Mode({
           enabled: true,

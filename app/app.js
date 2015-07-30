@@ -110,7 +110,7 @@
             })
             .state('contact', {
                 url: '/contact',
-                templateUrl: 'partials/contact/contact.html',               
+                templateUrl: 'partials/contact/contact.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - Contact',
                     description: 'This page provides contact information on Durban Bagua Zhang Kung Fu.'
@@ -118,12 +118,12 @@
             })
             .state('Method', {
                 url: '/Method',
-                templateUrl: 'partials/method/method.html',               
+                templateUrl: 'partials/method/method.html',
                 data: {
                     pageTitle : 'Bagua Kung Fu Durban - Method',
                     description: 'This page provides nformation on the training methods of Durban Bagua Zhang Kung Fu.'
                 }
-            }) 
+            });
 
         $locationProvider.html5Mode({
           enabled: true,
@@ -132,38 +132,38 @@
     });
 
     baguaApp.service('ClassesDataService', function() {
-        
-        this.classes = [{
-            name: 'Bagua Basics',
-            description: 'In this class we focus upon the basics of Bagua Zhang which include standing, striking, turning and changing.',
-            day: 'Wednesday',
-            time: '17:00pm - 19:00pm',
-            location: 
-            {
+
+      this.classes = [{
+          name: 'Xing Yi Chuan',
+          description: 'In this class we focus upon the basics of Xing Yi Chuan as well as its related weapons.',
+          day: 'Wednesday',
+          time: '17:00pm - 19:00pm',
+          location:
+          {
+            address: '58 Gordon Road',
+              suburb: 'Morningside',
+              city: 'Durban',
+              province: 'Kwa-zulu Natal'
+          }
+      },
+      {
+          name: 'Bagua Zhang',
+          description: 'In this class we focus upon the basics of Bagua Zhang which include standing, striking, turning and changing. In addition, the weapon systems of Bagua Zhang will be studied.',
+          day: 'Thursday',
+          time: '17:00pm - 19:00pm',
+          location:
+          {
               address: '58 Gordon Road',
-                suburb: 'Morningside',
-                city: 'Durban',
-                province: 'Kwa-zulu Natal'
-            }
-        }, 
-        {
-            name: 'Weapons and comparative studies',
-            description: 'In this class we focus upon the weapon systems of Bagua Zhang as well as a comparitive study of Tai Ji, Xing Yi and Muay Boran.',
-            day: 'Thursday',
-            time: '17:00pm - 19:00pm',
-            location: 
-            {
-                address: '58 Gordon Road',
-                suburb: 'Morningside',
-                city: 'Durban',
-                province: 'Kwa-zulu Natal'
-            }        
-        }];
+              suburb: 'Morningside',
+              city: 'Durban',
+              province: 'Kwa-zulu Natal'
+          }
+      }];
 
     });
 
     baguaApp.service('ClassesService', function(ClassesDataService) {
-        
+
         this.getAllClasses = function() {
             return ClassesDataService.classes;
         };
@@ -171,7 +171,7 @@
     });
 
     baguaApp.service('QuotesDataService', function() {
-       
+
         this.quotes = [{
             text: 'Everything flows, nothing stands still',
             author: 'Heraclitus of Ephesus'
@@ -277,7 +277,7 @@
     });
 
     baguaApp.service('QuotesService', function(QuotesDataService) {
-        
+
         this.getRandomQuote = function() {
             var quotesLength = QuotesDataService.quotes.length;
             var randomItem = Math.floor((Math.random() * quotesLength));
@@ -287,7 +287,7 @@
     });
 
     baguaApp.controller('appCtrl', ['$scope', function($scope) {
-        
+
         $scope.showContactUs = function() {
             $scope.showContactUsBoolean = true;
 
@@ -295,22 +295,22 @@
                 $scope.showContactUsBoolean = false;
             }
             return $scope.showContactUsBoolean;
-        };    
-        
+        };
+
     }]);
 
     baguaApp.controller('homeCtrl', function($scope) {
-      
+
     });
-   
+
     baguaApp.controller('classesCtrl', ['$scope', 'ClassesService', function($scope, ClassesService) {
-       
+
         $scope.classes = ClassesService.getAllClasses();
 
     }]);
 
     baguaApp.filter('durations', function() {
-        
+
         return function(duration) {
             switch (duration) {
                 case 1:
@@ -322,19 +322,19 @@
                 case 4:
                     return 'Full day';
             }
-        }
+        };
 
     });
 
     baguaApp.directive('title', ['$rootScope', '$timeout', 'QuotesService',
-    
+
         function($rootScope, $timeout, QuotesService) {
             return {
-                
+
                     link: function() {
 
                     var listener = function(event, toState) {
-                        
+
                         $timeout(function() {
                             $rootScope.title = (toState.data && toState.data.pageTitle) ? toState.data.pageTitle : 'Bagua Kung Fu Durban';
                             $rootScope.description = (toState.data && toState.data.description) ? toState.data.description : 'Bagua Kung Fu in Durban, South Africa';
@@ -347,6 +347,6 @@
             };
         }
 
-    ]);    
+    ]);
 
 }());

@@ -134,8 +134,8 @@
     baguaApp.service('ClassesDataService', function() {
 
       this.classes = [{
-          name: 'Xing Yi Chuan',
-          description: 'In this class we focus upon the basics of Xing Yi Chuan as well as its related weapons.',
+          name: 'Xing Yi Chuan & Muay Boran',
+          description: 'In this class we focus upon the basics of Xing Yi Chuan & Muay Boran.',
           day: 'Wednesday',
           time: '17:00pm - 19:00pm',
           location:

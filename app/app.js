@@ -134,8 +134,8 @@
     baguaApp.service('ClassesDataService', function() {
 
       this.classes = [{
-          name: 'Xing Yi Chuan & Muay Boran',
-          description: 'In this class we focus upon the basics of Xing Yi Chuan & Muay Boran.',
+          name: 'Bagua Weapons',
+          description: 'In this class we focus upon Bagua sabre and sword, staff and spear',
           day: 'Wednesday',
           time: '17:00pm - 19:00pm',
           location:
@@ -148,7 +148,7 @@
       },
       {
           name: 'Bagua Zhang',
-          description: 'In this class we focus upon the basics of Bagua Zhang which include standing, striking, turning and changing. In addition, the weapon systems of Bagua Zhang will be studied.',
+          description: 'In this class we focus upon the basics of Bagua Zhang which include standing, striking, turning and changing.',
           day: 'Thursday',
           time: '17:00pm - 19:00pm',
           location:
